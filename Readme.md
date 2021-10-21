@@ -1,0 +1,7 @@
+![User Register](./Assets/userregister.png)
+![User Login](./Assets/userlogin.png)
+![Create Log](./Assets/createlog.png)
+![Get Log](./Assets/getlog.png)
+![Get All Logs](./Assets/getalllogs.png)
+![Update Log](./Assets/updatelog.png)
+![Delete Log](./Assets/deletelog.png)
