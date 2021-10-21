@@ -9,11 +9,10 @@ router.post('/register', async(req, res) => {
     try {
         const User = await UserModel.create({
             email,
-            password,
-            password: bcrypt.hashSync(password, 13),
+            password: bcrypt.hashSync(password, 13)
         });
 
-        let token = jwt.sign({ id: User.id, }, process.env.JWT_SECRET, { expiresIn: 60 * 60 * 24 });
+        let token = jwt.sign({ id: User.id }, process.env.JWT_SECRET, { expiresIn: 60 * 60 * 24 });
 
         res.status(201).json({
             message: 'User successfully registered',
@@ -39,7 +38,7 @@ router.post('/login', async(req, res) => {
     try {
         let loginUser = await UserModel.findOne({
             where: {
-                email: email,
+                email: email
             },
         });
 
@@ -59,14 +58,13 @@ router.post('/login', async(req, res) => {
             }
         } else {
             res.status(401).json({
-                message: 'Incorrect email or password'
+                message: 'Login failed'
             });
         }
     } catch (error) {
         res.status(500).json({
-            message: 'Incorrect email or password'
+            message: 'Failed to log user in'
         })
     }
-
 });
 module.exports = router;
